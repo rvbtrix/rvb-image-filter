@@ -1,0 +1,322 @@
+{
+	"info": {
+		"_postman_id": "b4f34ff4-8fd9-4aeb-8aa3-9153ac44f9e3",
+		"name": "udacityRVB",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(`Welcome to the Cloud, james!`);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"test@gmail.com\",\n    \"password\": \"12345678\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v0/users/auth",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v0",
+						"users",
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(`Welcome to the Cloud, james!`);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"testando2@hotmail.com\",\n    \"password\": \"12345678\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v0/users/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v0",
+						"users",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "auth verification",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(`Welcome to the Cloud, james!`);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImVtYWlsIjoidGVzdGFuZG8yQGhvdG1haWwuY29tIiwicGFzc3dvcmRfaGFzaCI6IiQyYiQxMCROazYucURTb3p5SVZua2ZzUmRVT2FPSDBTRXN2eHd2R3JxaUlnbnFWSjZiSHJySmFlLlpSSyIsImNyZWF0ZWRBdCI6IjIwMjEtMDYtMTNUMjA6NTc6MjIuMzYwWiIsInVwZGF0ZWRBdCI6IjIwMjEtMDYtMTNUMjA6NTc6MjIuMzY2WiJ9LCJpYXQiOjE2MjQxMTQ3NDl9.w7geP708MzsSNj_4lWOhtIKnu09cr9MU2ZLmIE-Zsgw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v0/users/auth/verification",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v0",
+						"users",
+						"auth",
+						"verification"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Filter image",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImVtYWlsIjoidGVzdGFuZG8yQGhvdG1haWwuY29tIiwicGFzc3dvcmRfaGFzaCI6IiQyYiQxMCROazYucURTb3p5SVZua2ZzUmRVT2FPSDBTRXN2eHd2R3JxaUlnbnFWSjZiSHJySmFlLlpSSyIsImNyZWF0ZWRBdCI6IjIwMjEtMDYtMTNUMjA6NTc6MjIuMzYwWiIsInVwZGF0ZWRBdCI6IjIwMjEtMDYtMTNUMjA6NTc6MjIuMzY2WiJ9LCJpYXQiOjE2MjQxMTA4MTJ9.TJVFicJu_fk2dOOwx8ZxNz198kKfwbkEyK87Husrt1Y",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/filteredimage?img_url=https://s2.glbimg.com/6d-o4INn9YsngVhgY7UG5RnidHM=/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2020/V/J/DBU6GiTGeHolFSsWMGAw/arte11emp-101-oi-b5.jpg",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"filteredimage"
+					],
+					"query": [
+						{
+							"key": "img_url",
+							"value": "https://s2.glbimg.com/6d-o4INn9YsngVhgY7UG5RnidHM=/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2020/V/J/DBU6GiTGeHolFSsWMGAw/arte11emp-101-oi-b5.jpg"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "signed-url/:fileName",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"pm.test(\"The post returns a new item with an id\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.id).to.not.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImVtYWlsIjoidGVzdGFuZG8yQGhvdG1haWwuY29tIiwicGFzc3dvcmRfaGFzaCI6IiQyYiQxMCROazYucURTb3p5SVZua2ZzUmRVT2FPSDBTRXN2eHd2R3JxaUlnbnFWSjZiSHJySmFlLlpSSyIsImNyZWF0ZWRBdCI6IjIwMjEtMDYtMTNUMjA6NTc6MjIuMzYwWiIsInVwZGF0ZWRBdCI6IjIwMjEtMDYtMTNUMjA6NTc6MjIuMzY2WiJ9LCJpYXQiOjE2MjM2MTc4NDJ9.cLYQ2-KRJXGqrPlIOaA65ryj0msVpNlVhik8Ulm_tQY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"caption\": \"Hello\",\n    \"url\": \"test.jpg\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v0/feed/signed-url/testbots1.jpg",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v0",
+						"feed",
+						"signed-url",
+						"testbots1.jpg"
+					]
+				},
+				"description": "Post a new item to the feed"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "endpoint",
+			"value": "http://localhost:8082",
+			"type": "string"
+		}
+	]
+}
