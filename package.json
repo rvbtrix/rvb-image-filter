@@ -1,35 +1,61 @@
 {
   "name": "udacity-c2-image-filter",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Filter Image",
+  "main": "src/server.js",
   "scripts": {
+    "start": "ts-node-dev --respawn --transpile-only ./src/server.ts",
+    "tsc": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "clean": "rimraf www/ || true",
-    "build": "npm run clean && tsc && cp package.json www/package.json && mkdir www/tmp/ && cd www && zip -r Archive.zip . && cd ..",
-    "dev": "ts-node-dev ./src/server.ts"
+    "clean": "rm -rf www/ || true",
+    "build": "npm run tsc && cd www && cd ..",
+    "buildNotRuning": "npm run clean && tsc && cp -rf src/config www/config && cp .npmrc www/.npmrc && cp package.json www/package.json && cd www && zip -r Archive.zip . && cd ..",
+    "dev": "ts-node-dev --respawn --transpile-only ./src/server.ts",
+    "prod": "tsc && node ./www/server.js",
+    "devclear": "ts-node-dev --inspect ./src/server.ts"
+  },
+  "keywords": [],
+  "author": "Reginaldo Botelho",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.492.0",
+    "bcrypt": "^3.0.6",
+    "body-parser": "^1.19.0",
+    "dotenv": "^10.0.0",
+    "email-validator": "^2.0.4",
+    "eslint": "^7.28.0",
+    "express": "^4.17.1",
+    "jimp": "^0.16.1",
+    "jsonwebtoken": "^8.5.1",
+    "npm": "^7.17.0",
+    "pg": "^8.6.0",
+    "pg-hstore": "^2.3.4",
+    "reflect-metadata": "^0.1.13",
+    "rimraf": "^3.0.2",
+    "sequelize": "^6.6.2",
+    "sequelize-typescript": "^2.1.0",
+    "ts-promise": "^2.2.0",
+    "valid-image-url": "^0.1.4"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^3.0.0",
+    "@types/bluebird": "^3.5.35",
+    "@types/express": "^4.17.12",
+    "@types/node": "^15.12.2",
+    "@types/sequelize": "^4.28.9",
+    "@types/validator": "^13.1.4",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "mocha": "^6.1.4",
+    "ts-node-dev": "^1.1.6",
+    "typescript": "^4.3.2"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/grutt/udacity-c2-image-filter.git"
+    "url": "git+https://github.com/rvbtrix/rvb-image-filter.git"
   },
-  "author": "",
-  "license": "ISC",
   "bugs": {
-    "url": "https://github.com/grutt/udacity-c2-image-filter/issues"
+    "url": "https://github.com/rvbtrix/rvb-image-filter/issues"
   },
-  "homepage": "https://github.com/grutt/udacity-c2-image-filter#readme",
-  "devDependencies": {
-    "@types/bluebird": "^3.5.27",
-    "@types/express": "^4.17.0",
-    "@types/node": "^11.13.17",
-    "ts-node-dev": "^1.0.0-pre.40",
-    "tslint": "^5.18.0",
-    "typescript": "^3.5.3"
-  },
-  "dependencies": {
-    "express": "^4.17.1",
-    "jimp": "^0.16.1",
-    "rimraf": "^3.0.2"
-  }
+  "homepage": "https://github.com/rvbtrix/rvb-image-filter#readme"
 }
