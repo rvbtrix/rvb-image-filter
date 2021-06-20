@@ -2,9 +2,9 @@
   "name": "udacity-c2-image-filter",
   "version": "1.0.0",
   "description": "Filter Image",
-  "main": "src/server.js",
+  "main": "server.js",
   "scripts": {
-    "start": "ts-node-dev --respawn --transpile-only ./src/server.ts",
+    "start": "ts-node-dev ./src/server.ts",
     "tsc": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rm -rf www/ || true",
